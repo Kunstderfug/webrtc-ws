@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #222222;
+  background-color: #222222;
+  color: white;
+}
+
+div#call {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+}
+
+video {
+  background: black;
+  border: 1px solid gray;
+}
+
+video#local {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+video#remote {
+  width: 500px;
+  height: 500px;
+}
+/*# sourceMappingURL=style.css.map */

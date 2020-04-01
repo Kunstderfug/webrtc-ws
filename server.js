@@ -3,14 +3,14 @@
 const PORT = process.env.PORT || 3000;
 const INDEX = "/index.html";
 
+const WebSocket = require("ws").Server;
 const express = require("express");
+const app = express();
+const server = app.listen(PORT, () => console.log(`listening on ${PORT}`));
+const wss = new WebSocket({ server: server });
 
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`listening on ${PORT}`));
-
-const { Server } = require("ws");
-const wss = new Server({ server });
+app.use(express.static(__dirname + "/public"));
+app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
 
 //App code
 const users = {};

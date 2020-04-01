@@ -2,34 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>WebRTC</title>
-    <style>
-      div#call {
-        position: relative;
-        display: block;
-        margin: 0 auto;
-        width: 500px;
-        height: 500px;
-      }
-
-      video {
-        background: black;
-        border: 1px solid gray;
-      }
-
-      video#local {
-        width: 150px;
-        height: 150px;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-      }
-
-      video#remote {
-        width: 500px;
-        height: 500px;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusicRoom</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
 
   <body>
@@ -50,8 +25,8 @@
       </div>
     </div>
     <script>
-      var HOST = location.origin.replace(/^http/, "ws");
-      var ws = new WebSocket(HOST);
+      const HOST = location.origin.replace(/^http/, "ws");
+      const ws = new WebSocket(HOST);
 
       //APP code
       // const ws = new WebSocket("ws://localhost:8080");
@@ -61,7 +36,7 @@
       };
 
       ws.onerror = err => {
-        console.error(err);
+        console.error("there ts an error", err);
       };
 
       ws.onmessage = msg => {
