@@ -7,6 +7,14 @@ body {
   background-color: #222222;
   background-color: #222222;
   color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+input,
+button {
+  font-size: 2rem;
 }
 
 div#call {
