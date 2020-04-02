@@ -203,10 +203,16 @@
         connection.createAnswer(
           answer => {
             connection.setLocalDescription(answer);
-            sendMessage({
-              type: "answer",
-              answer: answer
-            });
+            sendMessage(
+              {
+                type: "answer",
+                answer: answer
+              },
+              (answer.sdp = answer.sdp.replace(
+                "minptime=10",
+                "minptime=10;stereo=1;sprop-stereo=1;maxaveragebitrate=256000"
+              ))
+            );
           },
           error => {
             alert("Error when creating an answer");
