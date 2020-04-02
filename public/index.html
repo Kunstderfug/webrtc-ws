@@ -13,8 +13,14 @@
 
   <body>
     <div id="login">
-      <label for="username">Login</label>
-      <input id="username" placeholder="Login" required="" autofocus="" />
+      <label for="username">Your Name</label>
+      <input
+        id="username"
+        type="text"
+        placeholder="your name"
+        required=""
+        autofocus=""
+      />
       <button id="login">Login</button>
     </div>
 
@@ -167,12 +173,22 @@
 
         connection.createOffer(
           offer => {
-            sendMessage({
-              type: "offer",
-              offer: offer
-            });
+            sendMessage(
+              {
+                type: "offer",
+                offer: offer
+              },
+              (offer.sdp = offer.sdp.replace(
+                "minptime=10",
+                "minptime=10;stereo=1;sprop-stereo=1;maxaveragebitrate=256000"
+              ))
+            );
 
             connection.setLocalDescription(offer);
+            // offer.sdp = offer.sdp.replace(
+            //   "useinbandfec=1",
+            //   "useinbandfec=1; stereo=1; maxaveragebitrate=510000"
+            // );
           },
           error => {
             alert("Error when creating an offer");

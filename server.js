@@ -1,7 +1,7 @@
 "use strict";
 
 const PORT = process.env.PORT || 3000;
-const INDEX = "/index.html";
+const INDEX = "/public/index.html";
 
 const WebSocket = require("ws").Server;
 const express = require("express");
