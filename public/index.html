@@ -179,16 +179,12 @@
                 offer: offer
               },
               (offer.sdp = offer.sdp.replace(
+                // these are the code for SDP replacement
                 "minptime=10",
                 "minptime=10;stereo=1;sprop-stereo=1;maxaveragebitrate=256000"
               ))
             );
-
             connection.setLocalDescription(offer);
-            // offer.sdp = offer.sdp.replace(
-            //   "useinbandfec=1",
-            //   "useinbandfec=1; stereo=1; maxaveragebitrate=510000"
-            // );
           },
           error => {
             alert("Error when creating an offer");
@@ -209,6 +205,7 @@
                 answer: answer
               },
               (answer.sdp = answer.sdp.replace(
+                // these are the code for SDP replacement
                 "minptime=10",
                 "minptime=10;stereo=1;sprop-stereo=1;maxaveragebitrate=256000"
               ))
